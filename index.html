@@ -68,5 +68,41 @@
       }
     </style>
     <div id="root"></div>
+
+    <!-- Guestbook CTA (static; React never touches nodes outside #root) -->
+    <a id="guestbook-cta" href="https://aya-guestbook.vercel.app/"
+       aria-label="افتحوا دفتر ذكريات آية">
+      <span class="gb-icon" aria-hidden="true">📖</span>
+      <span>اتركوا ذكرى</span>
+    </a>
+    <style>
+      #guestbook-cta {
+        position: fixed;
+        bottom: max(1.1rem, env(safe-area-inset-bottom));
+        inset-inline-start: 50%;
+        transform: translateX(50%);
+        z-index: 60;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.72rem 1.5rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #a8813d, #c9a05a);
+        color: #fdfbf7;
+        font-family: 'El Messiri', 'Amiri', system-ui, sans-serif;
+        font-size: 1.02rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        box-shadow: 0 6px 22px rgba(70, 57, 47, 0.28);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      #guestbook-cta:hover {
+        transform: translateX(50%) translateY(-2px);
+        box-shadow: 0 10px 28px rgba(70, 57, 47, 0.34);
+      }
+      #guestbook-cta .gb-icon { font-size: 1.15rem; }
+      #root:empty ~ #guestbook-cta { display: none; }
+    </style>
   </body>
 </html>
